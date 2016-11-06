@@ -1,9 +1,7 @@
-#![allow(warnings)]
+// #![allow(warnings)]
 
 
 pub mod counter {
-    use super::Store;
-
     #[derive(Debug)]
     pub enum Msg {
         Incr(i64),
@@ -80,7 +78,7 @@ fn main() {
 }
 
 pub struct Store<M, S> {
-    keyGen: i64,
+    key: i64,
     model: M,
     update: fn(S, M) -> M,
     subscriptions: Vec<Subscribe<M>>,
@@ -94,7 +92,7 @@ pub struct Subscribe<M> {
 impl<M: Clone + PartialEq, S> Store<M, S> {
     pub fn new(model: M, update: fn(S, M) -> M) -> Store<M, S> {
         Store {
-            keyGen: 0,
+            key: 0,
             model: model,
             update: update,
             subscriptions: vec![],
@@ -116,12 +114,12 @@ impl<M: Clone + PartialEq, S> Store<M, S> {
     }
 
     pub fn subscribe(&mut self, sub: fn(&M)) -> i64 {
-        self.keyGen += 1;
+        self.key += 1;
         self.subscriptions.push(Subscribe {
-            key: self.keyGen,
+            key: self.key,
             subscribe: sub,
         });
-        return self.keyGen;
+        return self.key;
     }
 
     pub fn unsubscribe(&mut self, sub: i64) {
