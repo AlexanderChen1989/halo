@@ -1,0 +1,6 @@
+[package]
+name = "halo"
+version = "0.1.0"
+authors = ["Alex Chen <alexanderchenmh@gmail.com>"]
+
+[dependencies]
