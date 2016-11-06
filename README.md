@@ -1,15 +1,15 @@
-# halo
+# Halo
 elm inspired state manager in rust
 
-# run example
+# Run Example
 ```bash
 git clone github.com/AlexanderChen1989/halo
 cd halo
 cargo run --example counter
 ```
-
+---
 # Understand Example
-* define Model
+## define Model
 ```rust
 #[derive(Debug, Clone, PartialEq)]
 pub struct Model {
@@ -27,7 +27,7 @@ impl Model {
     }
 }
 ```
-* define Msg and update to handle Msg
+## define Msg and update to handle Msg
 ```rust
 #[derive(Debug)]
 pub enum Msg {
@@ -56,7 +56,7 @@ pub fn update(msg: Msg, model: Model) -> Model {
     }
 }
 ```
-* define store hierachy
+## define store hierachy
 ```rust
 pub struct Stores {
     pub a: Store<Model, Msg>,
@@ -73,7 +73,7 @@ impl Stores {
 }
 ```
 
-* use stores
+## use stores
 ```rust
 extern crate halo;
 
@@ -109,4 +109,3 @@ Sub Model { num: 20, others: [] }
 Sub Model { num: 0, others: [] }
 Sub Model { num: 0, others: [100] }
 ```
-*
