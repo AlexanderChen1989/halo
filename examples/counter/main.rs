@@ -1,9 +1,10 @@
 extern crate halo;
 
+mod stores;
 mod counter;
 
-use counter::*;
-use halo::Store;
+use stores::Stores;
+use counter::{Model, Msg};
 
 fn main() {
     let mut stores = Stores::new();
@@ -18,20 +19,5 @@ fn main() {
 
     fn sub(model: &Model) {
         println!("Sub {:?}", model);
-    }
-}
-
-
-struct Stores {
-    a: Store<Model, Msg>,
-    b: Store<Model, Msg>,
-}
-
-impl Stores {
-    fn new() -> Stores {
-        Stores {
-            a: Store::new(Model::new(10), update),
-            b: Store::new(Model::new(20), update),
-        }
     }
 }

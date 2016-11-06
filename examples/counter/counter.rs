@@ -18,7 +18,7 @@ impl Model {
     pub fn new(num: i64) -> Model {
         Model {
             num: num,
-            others: vec![1, 2, 3, 5, 6],
+            others: vec![],
         }
     }
 }

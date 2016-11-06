@@ -1,10 +1,12 @@
-mod counter;
 
-use counter::*;
+extern crate halo;
+
+use halo::Store;
+use counter::{Model, Msg, update};
 
 pub struct Stores {
-    a: Store<Model, Msg>,
-    b: Store<Model, Msg>,
+    pub a: Store<Model, Msg>,
+    pub b: Store<Model, Msg>,
 }
 
 impl Stores {
