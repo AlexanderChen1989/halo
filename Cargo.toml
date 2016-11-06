@@ -4,3 +4,11 @@ version = "0.1.0"
 authors = ["Alex Chen <alexanderchenmh@gmail.com>"]
 
 [dependencies]
+
+
+[lib]
+name = "halo"
+
+[[example]]
+name = "counter"
+path = "examples/counter/main.rs"
