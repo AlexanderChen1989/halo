@@ -5,7 +5,7 @@ authors = ["Alex Chen <alexanderchenmh@gmail.com>"]
 description = "elm inspired state manager in rust"
 repository = "https://github.com/AlexanderChen1989/halo"
 readme = "./README.md"
-keywords = ["...", "..."]
+keywords = ["state management", "elm", "redux"]
 license = "MIT"
 
 [lib]
